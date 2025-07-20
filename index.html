@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Satyam Agrawal | DevOps Engineer</title>
+  
   <style>
     body {
       margin: 0;
@@ -110,12 +113,12 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>I am a driven and detail-oriented Senior SRE/DevOps Engineer with nearly 4 years of experience in automating infrastructure, optimizing CI/CD pipelines, and enhancing system reliability across cloud-native environments. I specialize in AWS, GCP, Kubernetes, observability, and infrastructure-as-code using Terraform and Ansible. My approach combines engineering excellence with proactive monitoring and security best practices to build resilient, production-ready systems.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" data-aos="fade-right">
     <h2>Technical Skills</h2>
     <ul>
       <li><strong>Cloud & IaC:</strong> AWS (EC2, EKS, ECS, Lambda, IAM), GCP (GKE, Compute Engine), Terraform, CloudFormation</li>
@@ -179,6 +182,16 @@
   <footer>
     © 2025 Satyam Agrawal | Built with 💻 and ☕
   </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+    duration: 800,
+    once: true
+    });
+  </script>
+
 
 </body>
 </html>
