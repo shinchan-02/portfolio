@@ -9,10 +9,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Gear</text></svg>">
 
+  html<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Satyam Agrawal | Sr. SRE/DevOps Engineer</title>
+  <meta name="description" content="Senior SRE/DevOps Engineer | AWS, EKS, Kops, Helm, Jenkins, Terraform, OpenSearch, Self-Hosted Tools | Fleetx, Ontic, Nykaa">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Gear</text></svg>">
+
   <style>
     :root {
       --bg: #ffffff; --text: #1a1a1a; --accent: #2563eb; --accent-light: #3b82f6;
       --gray: #6b7280; --light: #f8fafc; --border: #e2e8f0; --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --delay: 0.2s;
     }
     [data-theme="dark"] {
       --bg: #0f172a; --text: #e2e8f0; --accent: #60a5fa; --accent-light: #93c5fd;
@@ -37,6 +49,7 @@
     /* Hero */
     .hero {
       padding: 5rem 0; text-align: center; background: linear-gradient(135deg, var(--light), var(--bg));
+      position: relative; overflow: hidden;
     }
     .hero-img {
       width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 6px solid var(--accent);
@@ -49,16 +62,52 @@
       padding: 0.8rem 1.8rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s;
       display: inline-flex; align-items: center; gap: 0.5rem;
     }
-    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary { background: var(--accent); color: white; animation: pulse 2s infinite; }
     .btn-primary:hover { background: var(--accent-light); transform: translateY(-3px); }
     .btn-outline { border: 2px solid var(--accent); color: var(--accent); }
     .btn-outline:hover { background: var(--accent); color: white; }
 
+    /* Floating Logos */
+    .floating-logos {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0;
+    }
+    .float-logo {
+      position: absolute; width: 40px; height: 40px; opacity: 0.15;
+      animation: float 6s ease-in-out infinite;
+    }
+    .delay-1 { animation-delay: -1s; top: 15%; left: 10%; }
+    .delay-2 { animation-delay: -2s; top: 60%; right: 15%; }
+    .delay-3 { animation-delay: -3s; bottom: 20%; left: 20%; }
+    .delay-4 { animation-delay: -4s; top: 30%; right: 25%; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+
+    /* Inline Contact */
+    .cta-contact {
+      display: flex; align-items: center; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .contact-inline {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .contact-item {
+      background: var(--light); padding: 0.6rem 1rem; border-radius: 2rem; font-size: 0.9rem; font-weight: 600;
+      color: var(--accent); border: 2px solid var(--accent); transition: all 0.3s;
+    }
+    .contact-item:hover {
+      background: var(--accent); color: white; transform: translateY(-2px);
+    }
+
     /* Section */
     section { padding: 4rem 0; }
     .section-title {
-      font-size: 2.2rem; margin-bottom: 2rem; position: relative; display: inline-block;
-      color: var(--accent);
+      font-size: 2.2rem; margin-bottom: 2rem; position: relative; display: inline-block; color: var(--accent);
     }
     .section-title::after {
       content: ''; position: absolute; bottom: -10px; left: 0; width: 70px; height: 5px;
@@ -77,8 +126,7 @@
       transform: translateY(-8px); box-shadow: var(--shadow);
     }
     .skill-card h3 {
-      margin-bottom: 1rem; color: var(--accent); display: flex; align-items: center; gap: 0.75rem;
-      font-size: 1.3rem;
+      margin-bottom: 1rem; color: var(--accent); display: flex; align-items: center; gap: 0.75rem; font-size: 1.3rem;
     }
     .skill-icon { width: 42px; height: 42px; }
     .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
@@ -93,23 +141,10 @@
       gap: 2rem; margin: 3rem 0; padding: 2rem; background: var(--light); border-radius: 1rem;
       border: 1px dashed var(--border);
     }
-    .pipeline-step {
-      text-align: center; flex: 1; min-width: 130px;
-    }
-    .pipeline-icon {
-      width: 70px; height: 70px; margin: 0 auto 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    }
-    .pipeline-arrow {
-      font-size: 2rem; color: var(--accent); font-weight: bold;
-    }
-
-    .pipeline-arrow i {
-      transition: transform .3s ease;
-    }
-    
-    .pipeline:hover .pipeline-arrow i {
-      transform: translateX(6px);
-    }
+    .pipeline-step { text-align: center; flex: 1; min-width: 130px; }
+    .pipeline-icon { width: 70px; height: 70px; margin: 0 auto 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+    .pipeline-arrow i { transition: transform .3s ease; }
+    .pipeline:hover .pipeline-arrow i { transform: translateX(6px); }
 
     /* K8s Architecture */
     .k8s-arch {
@@ -146,22 +181,53 @@
       padding: 1.8rem; background: var(--light); border-radius: 1rem; border: 1px solid var(--border);
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     }
-    .timeline-panel h3 {
-      margin-bottom: 0.3rem; color: var(--accent); font-size: 1.3rem;
-    }
+    .timeline-panel h3 { margin-bottom: 0.3rem; color: var(--accent); font-size: 1.3rem; }
     .company { font-weight: 600; font-size: 1.1rem; }
     .date { font-size: 0.95rem; color: var(--gray); margin-bottom: 1rem; }
     .timeline-panel ul { margin-top: 1rem; padding-left: 1.2rem; }
     .timeline-panel li { margin-bottom: 0.5rem; }
 
-    /* Contact */
-    .contact-info {
-      display: flex; flex-direction: column; gap: 1rem; font-size: 1.1rem;
+    /* Animated Contact Grid */
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; margin-top: 3rem;
     }
-    .contact-info a {
-      display: flex; align-items: center; gap: 0.75rem; transition: color 0.2s;
+    .contact-card {
+      background: var(--bg); padding: 2.5rem 2rem; border-radius: 1.5rem; text-align: center;
+      border: 2px solid var(--border); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative; overflow: hidden; opacity: 0; transform: translateY(30px);
+      animation: slideUp 0.8s forwards;
     }
-    .contact-info a:hover { color: var(--accent-light); }
+    .contact-card:nth-child(1) { animation-delay: var(--delay); }
+    .contact-card:nth-child(2) { animation-delay: calc(var(--delay) + 0.1s); }
+    .contact-card:nth-child(3) { animation-delay: calc(var(--delay) + 0.2s); }
+    .contact-card:nth-child(4) { animation-delay: calc(var(--delay) + 0.3s); }
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .contact-card:hover {
+      transform: translateY(-12px) scale(1.02); border-color: var(--accent);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+    .contact-card::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s;
+    }
+    .contact-card:hover::before { left: 100%; }
+    .contact-icon {
+      width: 80px; height: 80px; margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 2rem; box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+      transition: all 0.3s ease;
+    }
+    .contact-card:hover .contact-icon {
+      transform: rotate(360deg) scale(1.1); box-shadow: 0 20px 40px rgba(37, 99, 235, 0.6);
+    }
+    .contact-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--accent); }
+    .contact-card p { color: var(--gray); margin-bottom: 1.5rem; font-size: 1.1rem; }
+    .contact-card a { font-weight: 600; }
 
     /* Footer */
     footer {
@@ -177,6 +243,7 @@
       .hero h1 { font-size: 2.3rem; }
       .pipeline { flex-direction: column; }
       .pipeline-arrow { transform: rotate(90deg); }
+      .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     }
   </style>
 </head>
@@ -200,27 +267,71 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <img src="assets/photo.jpg" alt="Satyam Agrawal" class="hero-img">
-      <h1>Satyam Agrawal</h1>
-      <p class="subtitle">Sr. SRE/DevOps Engineer | AWS • EKS • Kops • Helm • Jenkins • Terraform • Self-Hosted Infra</p>
-      <p style="max-width: 800px; margin: 1.5rem auto; color: var(--gray);">
-        Driven SRE with 4+ years building resilient systems. Expert in CI/CD, Kubernetes, self-hosted tools, cost optimization, and production debugging.
-      </p>
-      <div class="cta-buttons">
-        <a href="mailto:agarwalsatyam027@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Hire Me</a>
-        <a href="Satyam_Agarwal_devOps.pdf" download class="btn btn-outline"><i class="fas fa-file-pdf"></i> Download Resume</a>
-        <a href="https://linkedin.com/in/satyam-a-a36b3217b" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://medium.com/@stym_A" target="_blank" class="btn btn-outline" style="position:relative;" onmouseover="this.querySelector('span').style.opacity='1'" onmouseout="this.querySelector('span').style.opacity='0'"> DevOps Diaries 
-          <span style="position:absolute; bottom:-30px; left:50%; transform:translateX(-50%); background:var(--accent); color:white; padding:4px 8px; border-radius:4px; font-size:0.8rem; white-space:nowrap; opacity:0; transition:opacity 0.2s; pointer-events:none;">
-            Deep dives into SRE, K8s, and automation
-          </span>
+<!-- ====================================================== -->
+<!--  CREATIVE CONTACT SECTION (Animated + Logos)         -->
+<!-- ====================================================== -->
+<section id="contact" style="background: var(--light);">
+  <div class="container">
+    <h2 class="section-title">Let's Connect</h2>
+    
+    <!-- Animated Contact Cards -->
+    <div class="contact-grid">
+      
+      <!-- Hire Me + Email -->
+      <div class="contact-card" style="--delay: 0s;">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </div>
+        <h3>Hire Me</h3>
+        <p><a href="mailto:agarwalsatyam027@gmail.com">agarwalsatyam027@gmail.com</a></p>
+        <a href="mailto:agarwalsatyam027@gmail.com" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Send Message
         </a>
       </div>
+
+      <!-- Phone Call -->
+      <div class="contact-card" style="--delay: 0.2s;">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </div>
+        <h3>Call Me</h3>
+        <p><a href="tel:+918058083031">+91 8058083031</a></p>
+        <a href="tel:+918058083031" class="btn btn-primary">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="contact-card" style="--delay: 0.4s;">
+        <div class="contact-icon">
+          <i class="fab fa-linkedin"></i>
+        </div>
+        <h3>LinkedIn</h3>
+        <p>Connect professionally</p>
+        <a href="https://linkedin.com/in/satyam-a-a36b3217b" target="_blank" class="btn btn-outline">
+          <i class="fab fa-linkedin"></i> View Profile
+        </a>
+      </div>
+
+      <!-- Blogs -->
+      <div class="contact-card" style="--delay: 0.6s;">
+        <div class="contact-icon">
+          <i class="fab fa-medium-m"></i>
+        </div>
+        <h3>Infra Insights</h3>
+        <p>Technical write-ups</p>
+        <a href="https://medium.com/@stym_A" target="_blank" class="btn btn-outline">
+          <i class="fas fa-blog"></i> Read Blogs
+        </a>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- About -->
   <section id="about">
