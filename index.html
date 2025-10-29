@@ -103,6 +103,14 @@
       font-size: 2rem; color: var(--accent); font-weight: bold;
     }
 
+    .pipeline-arrow i {
+      transition: transform .3s ease;
+    }
+    
+    .pipeline:hover .pipeline-arrow i {
+      transform: translateX(6px);
+    }
+
     /* K8s Architecture */
     .k8s-arch {
       display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin: 3rem 0;
