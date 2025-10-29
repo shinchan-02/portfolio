@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Satyam Agrawal | Sr. SRE/DevOps Engineer</title>
+  <meta name="description" content="Senior SRE/DevOps Engineer | AWS, EKS, Kops, Helm, Jenkins, Terraform, OpenSearch, Self-Hosted Tools | Fleetx, Ontic, Nykaa">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Gear</text></svg>">
+
+  <style>
+    :root {
+      --bg: #ffffff; --text: #1a1a1a; --accent: #2563eb; --accent-light: #3b82f6;
+      --gray: #6b7280; --light: #f8fafc; --border: #e2e8f0; --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --delay: 0.2s;
+    }
+    [data-theme="dark"] {
+      --bg: #0f172a; --text: #e2e8f0; --accent: #60a5fa; --accent-light: #93c5fd;
+      --gray: #94a3b8; --light: #1e293b; --border: #334155; --shadow: 0 10px 15px -3px rgba(0,0,0,0.4);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: all 0.3s; }
+    a { color: var(--accent); text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--border);
+      z-index: 1000; padding: 1rem 0; backdrop-filter: blur(10px);
+    }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 700; font-size: 1.5rem; color: var(--accent); }
+    .nav-links a { margin-left: 2rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .theme-toggle { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text); }
+
+    /* Hero */
+    .hero {
+      padding: 5rem 0; text-align: center; background: linear-gradient(135deg, var(--light), var(--bg));
+      position: relative; overflow: hidden;
+    }
+    .hero-img {
+      width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 6px solid var(--accent);
+      margin-bottom: 1.5rem; box-shadow: var(--shadow);
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    .hero .subtitle { font-size: 1.3rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn {
+      padding: 0.8rem 1.8rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-3px); }
+    .btn-outline { border: 2px solid var(--accent); color: var(--accent); }
+    .btn-outline:hover { background: var(--accent); color: white; }
+
+    /* Floating Logos */
+    .floating-logos { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; }
+    .float-logo { position: absolute; width: 40px; height: 40px; opacity: 0.15; animation: float 6s ease-in-out infinite; }
+    .delay-1 { animation-delay: -1s; top: 15%; left: 10%; }
+    .delay-2 { animation-delay: -2s; top: 60%; right: 15%; }
+    .delay-3 { animation-delay: -3s; bottom: 20%; left: 20%; }
+    .delay-4 { animation-delay: -4s; top: 30%; right: 25%; }
+    @keyframes float { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-20px) rotate(5deg)} }
+
+    /* Pulse */
+    .animate-pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(37,99,235,.7)} 70%{box-shadow:0 0 0 10px rgba(37,99,235,0)} 100%{box-shadow:0 0 0 0 rgba(37,99,235,0)} }
+
+    /* Inline Contact */
+    .cta-contact { display: flex; align-items: center; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0; }
+    .contact-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .contact-item { background: var(--light); padding: 0.6rem 1rem; border-radius: 2rem; font-size: 0.9rem; font-weight: 600; color: var(--accent); border: 2px solid var(--accent); transition: all 0.3s; }
+    .contact-item:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+
+    /* Tooltip */
+    .tooltip-btn { position: relative; }
+    .tooltip { position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s; pointer-events: none; z-index: 10; }
+    .tooltip::after { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid var(--accent); }
+    .tooltip-btn:hover .tooltip { opacity: 1; visibility: visible; bottom: -35px; }
+
+    /* 3D Flip Resume Button */
+    .resume-card-wrapper { perspective: 1000px; position: relative; display: inline-block; }
+    .resume-download {
+      position: relative; display: inline-flex; transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); overflow: hidden;
+    }
+    .resume-download:hover { transform: rotateY(180deg); }
+    .resume-download .front-face,
+    .resume-download .back-face {
+      backface-visibility: hidden; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .resume-download .front-face { z-index: 2; }
+    .resume-download .back-face {
+      transform: rotateY(180deg); background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white; font-weight: 700;
+    }
+    .resume-download::before {
+      content: ''; position: absolute; top: -4px; left: -4px; right: -4px; bottom: -4px;
+      border: 3px solid transparent; border-top-color: var(--accent); border-radius: 0.5rem;
+      opacity: 0; animation: spin 1.5s linear infinite; pointer-events: none;
+    }
+    .resume-download:active::before { opacity: 1; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .tooltip-download {
+      position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: white; padding: 6px 12px; border-radius: 8px;
+      font-size: 0.8rem; white-space: nowrap; opacity: 0; visibility: hidden;
+      transition: all 0.3s ease; pointer-events: none; z-index: 10;
+    }
+    .tooltip-download::after {
+      content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+      border-left: 6px solid transparent; border-right: 6px solid transparent;
+      border-bottom: 6px solid var(--accent);
+    }
+    .resume-card-wrapper:hover .tooltip-download {
+      opacity: 1; visibility: visible; bottom: -35px;
+    }
+
+    /* Section */
+    section { padding: 4rem 0; }
+    .section-title {
+      font-size: 2.2rem; margin-bottom: 2rem; position: relative; display: inline-block; color: var(--accent);
+    }
+    .section-title::after {
+      content: ''; position: absolute; bottom: -10px; left: 0; width: 70px; height: 5px;
+      background: var(--accent); border-radius: 3px;
+    }
+
+    /* Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .skill-card { background: var(--light); padding: 1.8rem; border-radius: 1rem; border: 1px solid var(--border); transition: all 0.3s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .skill-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+    .skill-card h3 { margin-bottom: 1rem; color: var(--accent); display: flex; align-items: center; gap: 0.75rem; font-size: 1.3rem; }
+    .skill-icon { width: 42px; height: 42px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag { background: var(--bg); color: var(--text); padding: 0.4rem 0.8rem; border-radius: 1rem; font-size: 0.85rem; font-weight: 500; border: 1px solid var(--border); }
+
+    /* CI/CD Pipeline */
+    .pipeline { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem; margin: 3rem 0; padding: 2rem; background: var(--light); border-radius: 1rem; border: 1px dashed var(--border); }
+    .pipeline-step { text-align: center; flex: 1; min-width: 130px; }
+    .pipeline-icon { width: 70px; height: 70px; margin: 0 auto 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+    .pipeline-arrow i { transition: transform .3s ease; }
+    .pipeline:hover .pipeline-arrow i { transform: translateX(6px); }
+
+    /* K8s Architecture */
+    .k8s-arch { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin: 3rem 0; }
+    .k8s-row { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .k8s-node { background: var(--light); padding: 1.2rem; border-radius: 0.75rem; border: 1px solid var(--border); text-align: center; min-width: 150px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .k8s-node .icon { width: 50px; height: 50px; margin-bottom: 0.5rem; }
+
+    /* Experience Timeline */
+    .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; width: 3px; background: var(--border); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
+    .timeline-item { padding: 1.5rem 2.5rem; position: relative; width: 50%; }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background: var(--accent); border: 4px solid var(--bg); top: 28px; border-radius: 50%; z-index: 1; }
+    .timeline-item:nth-child(even)::after { left: -10px; }
+    .timeline-panel { padding: 1.8rem; background: var(--light); border-radius: 1rem; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .timeline-panel h3 { margin-bottom: 0.3rem; color: var(--accent); font-size: 1.3rem; }
+    .company { font-weight: 600; font-size: 1.1rem; }
+    .date { font-size: 0.95rem; color: var(--gray); margin-bottom: 1rem; }
+    .timeline-panel ul { margin-top: 1rem; padding-left: 1.2rem; }
+    .timeline-panel li { margin-bottom: 0.5rem; }
+
+    /* Animated Contact Grid */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .contact-card { background: var(--bg); padding: 2.5rem 2rem; border-radius: 1.5rem; text-align: center; border: 2px solid var(--border); transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; opacity: 0; transform: translateY(30px); animation: slideUp 0.8s forwards; }
+    .contact-card:nth-child(1) { animation-delay: var(--delay); }
+    .contact-card:nth-child(2) { animation-delay: calc(var(--delay) + 0.1s); }
+    .contact-card:nth-child(3) { animation-delay: calc(var(--delay) + 0.2s); }
+    .contact-card:nth-child(4) { animation-delay: calc(var(--delay) + 0.3s); }
+    @keyframes slideUp { to { opacity:1; transform:translateY(0); } }
+    .contact-card:hover { transform: translateY(-12px) scale(1.02); border-color: var(--accent); box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
+    .contact-card::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent); transition:left .6s; }
+    .contact-card:hover::before { left:100%; }
+    .contact-icon { width:80px; height:80px; margin:0 auto 1.5rem; background:linear-gradient(135deg,var(--accent),var(--accent-light)); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:2rem; box-shadow:0 10px 30px rgba(37,99,235,.4); transition:all .3s; }
+    .contact-card:hover .contact-icon { transform:rotate(360deg) scale(1.1); box-shadow:0 20px 40px rgba(37,99,235,.6); }
+    .contact-card h3 { font-size:1.4rem; margin-bottom:.5rem; color:var(--accent); }
+    .contact-card p { color:var(--gray); margin-bottom:1.5rem; font-size:1.1rem; }
+    .contact-card a { font-weight:600; }
+
+    /* Footer */
+    footer { text-align: center; padding: 2.5rem 0; border-top: 1px solid var(--border); color: var(--gray); font-size: 0.95rem; }
+
+    /* Confetti Canvas */
+    #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .timeline::before { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 20px; left: 0 !important; }
+      .timeline-item::after { left: 21px !important; }
+      .hero h1 { font-size: 2.3rem; }
+      .pipeline { flex-direction: column; }
+      .pipeline-arrow { transform: rotate(90deg); }
+      .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Satyam Agrawal</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#pipeline">CI/CD</a>
+          <a href="#k8s">Kubernetes</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container" style="position:relative; overflow:hidden;">
+
+      <!-- Floating Tech Logos -->
+      <div class="floating-logos">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" class="float-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="K8s" class="float-logo delay-1">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins" class="float-logo delay-2">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg" alt="Helm" class="float-logo delay-3">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="float-logo delay-4">
+      </div>
+
+      <img src="assets/photo.jpg" alt="Satyam Agrawal" class="hero-img">
+      <h1>Satyam Agrawal</h1>
+      <p class="subtitle">Sr. SRE/DevOps Engineer | AWS • EKS • Kops • Helm • Jenkins • Terraform • Self-Hosted Infra</p>
+      <p style="max-width:800px;margin:1.5rem auto;color:var(--gray);">
+        Driven SRE with 4+ years building resilient systems. Expert in CI/CD, Kubernetes, self-hosted tools, cost optimization, and production debugging.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Hire Me + Email -->
+        <div class="contact-card" style="--delay:0s;">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <h3>Hire Me</h3>
+          <p><a href="mailto:agarwalsatyam027@gmail.com">agarwalsatyam027@gmail.com</a></p>
+          <a href="mailto:agarwalsatyam027@gmail.com" class="btn btn-primary">Send Message</a>
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-card" style="--delay:0.2s;">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+          </div>
+          <h3>Call Me</h3>
+          <p><a href="tel:+918058083031">+91 8058083031</a></p>
+          <a href="tel:+918058083031" class="btn btn-primary">Call Now</a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="contact-card" style="--delay:0.4s;">
+          <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+          <h3>LinkedIn</h3>
+          <p>Connect professionally</p>
+          <a href="https://linkedin.com/in/satyam-a-a36b3217b" target="_blank" class="btn btn-outline">View Profile</a>
+        </div>
+
+        <!-- Blogs -->
+        <div class="contact-card" style="--delay:0.6s;">
+          <div class="contact-icon"><i class="fab fa-medium-m"></i></div>
+          <h3>DevOps Diaries</h3>
+          <p>Technical write-ups</p>
+          <a href="https://medium.com/@stym_A" target="_blank" class="btn btn-outline">Read Blogs</a>
+        </div>
+      </div>
+
+      <!-- CREATIVE RESUME BUTTON -->
+      <div class="cta-buttons">
+        <div class="resume-card-wrapper">
+          <a href="#" class="resume-download btn btn-outline" id="downloadResume">
+            <span class="front-face">Download Resume</span>
+            <span class="back-face">Click to Download!</span>
+          </a>
+          <div class="tooltip-download">PDF Ready! (2.1 MB)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p style="max-width: 900px; margin: 0 auto; font-size: 1.1rem;">
+        I thrive in dynamic environments, solving complex infrastructure challenges with automation, observability, and security. From setting up <strong>self-hosted Rundeck, Pritunl, Overpass, Metabase</strong> to <strong>migrating EC2 to EKS</strong> and <strong>upgrading MySQL 5.6 to 8.0</strong>, I deliver scalable, secure, and cost-optimized systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" style="background: var(--light);">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path fill="#EC912D" d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/></svg> Cloud & IaC</h3>
+          <p>AWS (EKS, ECS, Lambda, IAM), GCP (GKE), Terraform, CloudFormation</p>
+          <div class="tags"><span class="tag">EKS</span><span class="tag">Lambda</span><span class="tag">Spot</span><span class="tag">Terraform</span></div>
+        </div>
+
+        <div class="skill-card">
+          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path fill="#326CE5" d="M12 2L3 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg> Container & K8s</h3>
+          <p>Docker, Kubernetes (Kops, EKS, GKE), Helm, ECS</p>
+          <div class="tags"><span class="tag">Kops</span><span class="tag">Helm</span><span class="tag">EKS Auto</span></div>
+        </div>
+
+        <div class="skill-card">
+          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path fill="#D24939" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> CI/CD</h3>
+          <p>Jenkins, GitLab CI, Helm, Playwright, Rundeck, Lambda</p>
+          <div class="tags"><span class="tag">Jenkins Agents</span><span class="tag">Playwright</span><span class="tag">Rundeck</span></div>
+        </div>
+
+        <div class="skill-card">
+          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path fill="#00ADD8" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Monitoring</h3>
+          <p>Prometheus, Grafana, Loki, OpenSearch, Fluentd/Bit, Alertmanager</p>
+          <div class="tags"><span class="tag">OpenSearch</span><span class="tag">Fluent Bit</span><span class="tag">5xx Alerts</span></div>
+        </div>
+
+        <div class="skill-card">
+          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path fill="#4EAA25" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.06-7.44 7-7.93V15l5.5-3.5L11 8.07V19z"/></svg> Scripting</h3>
+          <p>Bash, Python, Lua (KONG), PowerShell</p>
+          <div class="tags"><span class="tag">Automation</span><span class="tag">Lambda</span><span class="tag">KONG Lua</span></div>
+        </div>
+
+        <div class="skill-card">
+          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path fill="#7C3AED" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Security & Self-Hosted</h3>
+          <p>Snort, Wazuh, Pritunl, Teleport, Overpass, Metabase</p>
+          <div class="tags"><span class="tag">Pritunl VPN</span><span class="tag">Overpass</span><span class="tag">Metabase</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+<!-- ====================================================== -->
+<!--  CI/CD PIPELINE (cleaner, animated arrows)           -->
+<!-- ====================================================== -->
+<section id="pipeline">
+  <div class="container">
+    <h2 class="section-title">CI/CD Pipeline</h2>
+
+    <div class="pipeline">
+      <!-- Step 1 -->
+      <div class="pipeline-step">
+        <svg class="pipeline-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#F89820" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <div>GitLab</div>
+      </div>
+
+      <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+
+      <!-- Step 2 -->
+      <div class="pipeline-step">
+        <svg class="pipeline-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#D24939" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <div>Jenkins</div>
+      </div>
+
+      <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+
+      <!-- Step 3 -->
+      <div class="pipeline-step">
+        <svg class="pipeline-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#00ADD8" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <div>Helm</div>
+      </div>
+
+      <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+
+      <!-- Step 4 -->
+      <div class="pipeline-step">
+        <svg class="pipeline-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#326CE5" d="M12 2L3 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+        </svg>
+        <div>Kubernetes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================== -->
+<!--  KUBERNETES ARCHITECTURE (compact & modern)          -->
+<!-- ====================================================== -->
+<section id="k8s" style="background: var(--light);">
+  <div class="container">
+    <h2 class="section-title">Kubernetes Architecture</h2>
+
+    <div class="k8s-arch">
+
+      <!-- Control Plane -->
+      <div class="k8s-row" style="justify-content:center;">
+        <div class="k8s-node">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#326CE5" d="M12 2L3 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+          </svg>
+          <div>Control Plane</div>
+        </div>
+      </div>
+
+      <!-- Worker Layer -->
+      <div class="k8s-row">
+        <div class="k8s-node">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#EC912D" d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+          </svg>
+          <div>Worker Node</div>
+        </div>
+
+        <div class="k8s-node">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#2496ED" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          <div>Pod</div>
+        </div>
+
+        <div class="k8s-node">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4EAA25" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.06-7.44 7-7.93V15l5.5-3.5L11 8.07V19z"/>
+          </svg>
+          <div>Container</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-panel">
+            <h3>Sr. SRE/DevOps Engineer</h3>
+            <div class="company">Fleetx Technologies</div>
+            <div class="date">May 2024 – Present | Gurugram</div>
+            <ul>
+              <li>Setup <strong>self-hosted Rundeck</strong> from scratch, migrated all scripts & centralized automation</li>
+              <li>Deployed <strong>Pritunl VPN</strong> for secure internal access</li>
+              <li>Configured <strong>Kops</strong> + <strong>Jenkins + Helm</strong> for application deployments</li>
+              <li>Enabled <strong>EKS Auto</strong> for dynamic scaling</li>
+              <li>Debugged production issues (5xx, DB, memory) in real-time</li>
+              <li>Upgraded MySQL from 5.6 → 5.7 → 8.0</li>
+              <li>Setup <strong>self-hosted Overpass API, Metabase</strong></li>
+              <li>Managed multi-agent Jenkins, upgraded versions seamlessly</li>
+              <li>Integrated <strong>OpenSearch + Fluentd/Bit</strong> for centralized logging</li>
+              <li>Integrated <strong>Playwright</strong> in deployment pipeline</li>
+              <li>Implemented cost optimization using Spot & auto-remediation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-panel">
+            <h3>DevOps Engineer</h3>
+            <div class="company">Ontic Technologies</div>
+            <div class="date">Sep 2023 – Apr 2024 | Noida</div>
+            <ul>
+              <li>Deployed self-hosted K8s on GCP, migrated VMs → K8s</li>
+              <li>Built CI/CD with Helm + Jenkins</li>
+              <li>Configured monitoring & resolved CPU/memory bottlenecks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-panel">
+            <h3>DevOps Engineer</h3>
+            <div class="company">Nykaa</div>
+            <div class="date">Sep 2021 – Sep 2023 | Gurugram</div>
+            <ul>
+              <li>Led automation with Shell/Python, reduced costs</li>
+              <li>Deployed ECS, initiated EKS, used Spot + Lambda + SNS</li>
+              <li>Customized KONG API with Lua</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Satyam Agrawal. Built with passion for DevOps.</footer>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script>
+    // Theme Toggle
+    const toggle = document.querySelector('.theme-toggle');
+    const icon = toggle.querySelector('i');
+    const setTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      icon.classList.toggle('fa-moon', theme === 'light');
+      icon.classList.toggle('fa-sun', theme === 'dark');
+    };
+    const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(saved);
+    toggle.addEventListener('click', () => setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Confetti + Download
+    document.getElementById('downloadResume').addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Trigger download
+      setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = 'Satyam_Agarwal_devOps.pdf';
+        link.download = 'Satyam_Agarwal_Resume.pdf';
+        link.click();
+      }, 300);
+
+      // Confetti
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const confetti = [];
+      const colors = ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#ffffff'];
+
+      for (let i = 0; i < 300; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 4 + 1,
+          d: Math.random() * 300,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.random() * 10 - 10,
+          tiltAngle: 0
+        });
+      }
+
+      let animationFrame;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confetti.forEach((c, i) => {
+          c.tiltAngle += 0.1;
+          c.tilt = Math.sin(c.tiltAngle) * 15;
+          ctx.beginPath();
+          ctx.lineWidth = c.r;
+          ctx.strokeStyle = c.color;
+          ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+          ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
+          ctx.stroke();
+          c.y += c.d / 100;
+          if (c.y > canvas.height) confetti.splice(i, 1);
+        });
+        if (confetti.length > 0) animationFrame = requestAnimationFrame(draw);
+      }
+      draw();
+
+      setTimeout(() => {
+        cancelAnimationFrame(animationFrame);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
