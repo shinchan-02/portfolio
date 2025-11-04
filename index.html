@@ -141,7 +141,28 @@
 
     /* ---------- Mobile ---------- */
     @media (max-width: 960px){
-      .hero .wrap{grid-template-columns: 1fr; padding:44px 0 18px}
+      .hero .wrap{grid-template-columns: 1fr; padding:36px 0 12px; align-items:start}
+      .grid.cols-3{grid-template-columns: 1fr}
+      .grid.cols-2{grid-template-columns: 1fr}
+      .links{display:none}
+      .hamburger{display:flex}
+      nav.open .links{position:absolute; left:16px; right:16px; top:64px; display:flex; flex-direction:column; gap:10px; background:var(--bg-soft); border:1px solid var(--border); padding:12px; border-radius:14px}
+      .portrait{width:128px; height:128px}
+      .title{font-size:clamp(26px, 7vw, 40px)}
+      .subtitle{font-size:clamp(14px, 4vw, 16px)}
+      .cta .btn{width:100%}
+      .project{flex-direction:column}
+      .t-title{flex-wrap:wrap}
+    }
+
+    @media (max-width: 600px){
+      .container{padding:0 14px}
+      section{padding:48px 0}
+      .contact-grid{grid-template-columns: 1fr}
+      .contact-card{padding:20px}
+      .chip{padding:8px 10px}
+      .brand .logo{width:28px; height:28px}
+    }
       .grid.cols-3{grid-template-columns: 1fr}
       .grid.cols-2{grid-template-columns: 1fr}
       .links{display:none}
@@ -237,7 +258,7 @@
           </div>
           <div class="card glass" style="padding:12px">
             <div class="t-meta">Cost Saved</div>
-            <div style="font-weight:800; font-size:22px">$4K-10k+/mo</div>
+            <div style="font-weight:800; font-size:22px">$K+/mo</div>
           </div>
         </div>
         <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
@@ -257,7 +278,7 @@
       <div class="grid cols-2">
         <div class="card glass">
           <h3>What I do</h3>
-          <p>I design and operate cloud platforms that are fast, cost‑efficient, observable and a joy to ship on. Think EKS/ECS, GitOps/Helm, IaC with Terraform, robust CI/CD and production debugging that actually finds the root cause.</p>
+          <p>I design and operate cloud platforms that are fast, cost‑efficient, observable, and a joy to ship on. Think EKS/ECS, GitOps/Helm, IaC with Terraform, robust CI/CD, and production debugging that actually finds the root cause.</p>
           <div class="tags" style="margin-top:8px">
             <span class="tag">Chaos Engineering</span>
             <span class="tag">Cost Optimization</span>
