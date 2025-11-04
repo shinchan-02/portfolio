@@ -6,9 +6,11 @@
   <title>Satyam Agrawal | Sr. SRE / DevOps Engineer</title>
   <meta name="description" content="Sr. SRE/DevOps Engineer — AWS, Kubernetes, Docker, Terraform, CI/CD, Observability. Ex-Nykaa, Ex-Ontic. I build resilient, scalable infra that just works." />
   <meta name="author" content="Satyam Agrawal" />
+
+  <!-- Fonts & icons (only FA; tech chips are inline SVGs, no CDN risk) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
@@ -36,6 +38,7 @@
       --border:#e2e8f0; --shadow:0 10px 24px rgba(2,6,23,.12);
     }
 
+    /* Base */
     *{box-sizing:border-box}
     img,svg,canvas,video{max-width:100%;height:auto;display:block}
     html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}
@@ -75,35 +78,37 @@
     .subtitle{font-size:clamp(16px, 2.2vw, 18px); color:var(--muted); overflow-wrap:anywhere; word-break:break-word;}
     .cta{margin-top:22px; display:flex; flex-wrap:wrap; gap:12px}
 
-    /* Hero card — smaller */
+    /* Hero card — sized and safe */
     .portrait{width:128px; height:128px; border-radius:24px; border:3px solid color-mix(in lab, var(--accent) 60%, transparent); box-shadow:var(--shadow); object-fit:cover}
     .hero-card{padding:16px; border-radius:16px; max-width:520px}
+    @media (min-width:1024px) and (max-width:1366px){
+      .hero-card{max-width:460px}
+      .title{font-size:clamp(28px, 4.3vw, 50px)}
+      .subtitle{font-size:16px}
+    }
 
-    /* Blobs */
+    /* Background blobs */
     .blob{position:absolute; filter:blur(70px); opacity:.55; z-index:-1; animation:float 12s ease-in-out infinite alternate}
     .blob.one{width:380px; height:380px; background:radial-gradient(600px 200px at 30% 30%, var(--accent), transparent 60%); top:-120px; left:-60px}
     .blob.two{width:460px; height:460px; background:radial-gradient(600px 200px at 70% 70%, var(--accent-2), transparent 60%); bottom:-140px; right:-80px}
     @keyframes float{to{transform:translateY(20px) translateX(10px)}}
 
-    /* Skills marquee */
-    .marquee{overflow:hidden; mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-    .marquee-track{display:flex; gap:24px; white-space:nowrap; animation:scroll 28s linear infinite; align-items:center}
-    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+    /* Tech chips (no marquee scroll, always visible) */
+    .chips{margin-top:22px}
+    .chips-row{display:flex; flex-wrap:wrap; gap:10px}
     .chip{
       display:inline-flex; align-items:center; gap:.5rem;
       padding:8px 12px; border-radius:999px; border:1px solid var(--border);
       background:var(--card); color:var(--text); font-weight:600;
-      min-width:0; max-width:180px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
     }
-    .chip img{width:18px; height:18px; flex:0 0 auto; display:block}
-    .chip span{min-width:0; overflow:hidden; text-overflow:ellipsis}
+    .chip .ico{width:18px; height:18px; display:inline-block}
 
     /* Sections */
     section{padding:64px 0}
     .section-title{font-size:clamp(24px, 3vw, 34px); font-weight:800; margin:0 0 14px;}
     .section-sub{color:var(--muted); margin-bottom:24px}
 
-    /* Cards/Grid */
+    /* Grid & cards */
     .grid{display:grid; gap:20px}
     .grid.cols-3{grid-template-columns:repeat(3, minmax(0, 1fr)); align-items:start}
     .grid.cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}
@@ -148,7 +153,6 @@
       .t-title{flex-wrap:wrap}
       .cta .btn{width:100%}
     }
-
     @media (max-width: 600px){
       .container{padding:0 14px}
       section{padding:48px 0}
@@ -160,17 +164,40 @@
 
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce){
-      .marquee-track{animation:none}
       .blob{animation:none}
       .btn:hover{transform:none}
     }
   </style>
 </head>
 <body>
+  <!-- inline SVG symbols (no CDN). AWS is real logo; others are monograms for robustness -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden">
+    <defs>
+      <!-- AWS logo path (from simple-icons) -->
+      <symbol id="ico-aws" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M19.527 15.58c-1.888 1.403-4.623 2.285-7.536 2.285-3.593 0-6.78-1.32-9.207-3.51a.52.52 0 0 1 .703-.764c2.241 1.94 5.182 3.164 8.504 3.164 2.718 0 5.199-.756 6.924-2.017a.52.52 0 0 1 .612.842zm2.08-1.976a.52.52 0 0 1-.18.712c-2.216 1.314-5.307 2.098-8.735 2.098-3.397 0-6.51-.75-8.736-2.048a.52.52 0 1 1 .531-.902c2.055 1.208 5.037 1.937 8.205 1.937 3.186 0 6.083-.688 8.04-1.89a.52.52 0 0 1 .875.093zM11.97 2.25c2.34 0 3.845 1.201 3.845 3.227 0 1.286-.74 2.29-1.76 2.65 1.308.32 2.18 1.42 2.18 2.97 0 2.273-1.707 3.604-4.404 3.604H7.27V2.25h4.7zm-.285 5.29c1.19 0 1.908-.648 1.908-1.61 0-1.003-.72-1.57-1.907-1.57H8.89V7.54h2.795zm.19 5.25c1.4 0 2.246-.68 2.246-1.83 0-1.137-.847-1.79-2.247-1.79H8.89v3.62h2.985z"/>
+      </symbol>
+
+      <!-- Monogram symbols -->
+      <symbol id="ico-k8s" viewBox="0 0 24 24"><text x="3" y="17" font-size="14" font-family="Inter, Arial" fill="currentColor">K8s</text></symbol>
+      <symbol id="ico-helm" viewBox="0 0 24 24"><text x="2" y="17" font-size="14" font-family="Inter, Arial" fill="currentColor">Helm</text></symbol>
+      <symbol id="ico-jenkins" viewBox="0 0 24 24"><text x="0" y="17" font-size="14" font-family="Inter, Arial" fill="currentColor">Jnk</text></symbol>
+      <symbol id="ico-terraform" viewBox="0 0 24 24"><text x="0" y="17" font-size="14" font-family="Inter, Arial" fill="currentColor">Tf</text></symbol>
+      <symbol id="ico-docker" viewBox="0 0 24 24"><text x="0" y="17" font-size="14" font-family="Inter, Arial" fill="currentColor">Dkr</text></symbol>
+      <symbol id="ico-python" viewBox="0 0 24 24"><text x="0" y="17" font-size="14" font-family="Inter, Arial" fill="currentColor">Py</text></symbol>
+      <symbol id="ico-go" viewBox="0 0 24 24"><text x="4" y="17" font-size="14" font-family="Inter, Arial" fill="currentColor">Go</text></symbol>
+    </defs>
+  </svg>
+
   <div class="progress" id="progress"></div>
+
+  <!-- Header -->
   <header>
     <div class="container nav" id="nav">
-      <div class="brand"><span class="logo"><i class="fa-solid fa-gear"></i></span> <a href="#top" class="skip">Satyam Agrawal</a></div>
+      <div class="brand">
+        <span class="logo"><i class="fa-solid fa-gear"></i></span>
+        <a href="#top" class="skip">Satyam Agrawal</a>
+      </div>
       <nav class="links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -200,41 +227,22 @@
           <a class="btn" href="https://linkedin.com/in/satyam-a-a36b3217b" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></a>
         </div>
 
-        <!-- Tech Marquee -->
-        <div class="marquee" style="margin-top:22px">
-          <div class="marquee-track">
-            <span class="chip">
-              <img alt="AWS"
-                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg"
-                   onerror="this.remove();" />
-              <span>AWS</span>
-            </span>
-            <span class="chip"><img alt="Kubernetes" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" onerror="this.remove();" /><span>Kubernetes</span></span>
-            <span class="chip"><img alt="Helm" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg" onerror="this.remove();" /><span>Helm</span></span>
-            <span class="chip"><img alt="Jenkins" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" onerror="this.remove();" /><span>Jenkins</span></span>
-            <span class="chip"><img alt="Terraform" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" onerror="this.remove();" /><span>Terraform</span></span>
-            <span class="chip"><img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" onerror="this.remove();" /><span>Docker</span></span>
-            <span class="chip"><img alt="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" onerror="this.remove();" /><span>Python</span></span>
-            <span class="chip"><img alt="Go" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" onerror="this.remove();" /><span>Go</span></span>
-
-            <!-- duplicate for smooth loop -->
-            <span class="chip">
-              <img alt="AWS"
-                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg"
-                   onerror="this.remove();" />
-              <span>AWS</span>
-            </span>
-            <span class="chip"><img alt="Kubernetes" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" onerror="this.remove();" /><span>Kubernetes</span></span>
-            <span class="chip"><img alt="Helm" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg" onerror="this.remove();" /><span>Helm</span></span>
-            <span class="chip"><img alt="Jenkins" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" onerror="this.remove();" /><span>Jenkins</span></span>
-            <span class="chip"><img alt="Terraform" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" onerror="this.remove();" /><span>Terraform</span></span>
-            <span class="chip"><img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" onerror="this.remove();" /><span>Docker</span></span>
-            <span class="chip"><img alt="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" onerror="this.remove();" /><span>Python</span></span>
-            <span class="chip"><img alt="Go" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" onerror="this.remove();" /><span>Go</span></span>
+        <!-- Tech Chips (static, wrap, no CDN risk) -->
+        <div class="chips">
+          <div class="chips-row">
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-aws"/></svg></span>AWS</span>
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-k8s"/></svg></span>Kubernetes</span>
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-helm"/></svg></span>Helm</span>
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-jenkins"/></svg></span>Jenkins</span>
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-terraform"/></svg></span>Terraform</span>
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-docker"/></svg></span>Docker</span>
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-python"/></svg></span>Python</span>
+            <span class="chip"><span class="ico"><svg viewBox="0 0 24 24"><use href="#ico-go"/></svg></span>Go</span>
           </div>
         </div>
       </section>
 
+      <!-- Profile card -->
       <aside class="glass hero-card" aria-label="Profile quick facts">
         <div style="display:flex; gap:14px; align-items:center">
           <img src="assets/photo.jpg" alt="Portrait of Satyam Agrawal" class="portrait" loading="eager"
@@ -458,7 +466,7 @@
 
   <footer>
     <div class="container">© <span id="year"></span> Satyam Agrawal • Built with vanilla HTML/CSS/JS.
-    <div style="margin-top:8px">If it isn’t monitored, it doesn’t exist. If it isn’t automated, you’re doing it wrong.</div>
+      <div style="margin-top:8px">If it isn’t monitored, it doesn’t exist. If it isn’t automated, you’re doing it wrong.</div>
     </div>
   </footer>
 
@@ -468,7 +476,7 @@
     <button class="btn icon" id="toggleReducedMotion" aria-label="Toggle reduced motion"><i class="fa-solid fa-gauge-simple-high"></i></button>
   </div>
 
-  <!-- Structured Data -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -488,7 +496,11 @@
   <script>
     // Theme toggle
     const themeBtn = document.getElementById('themeToggle');
-    const setTheme = t => { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('theme', t); themeBtn.innerHTML = `<i class="fa-solid ${t==='light'?'fa-moon':'fa-sun'}"></i>`; };
+    const setTheme = t => {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      themeBtn.innerHTML = `<i class="fa-solid ${t==='light'?'fa-moon':'fa-sun'}"></i>`;
+    };
     const pref = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     setTheme(pref);
     themeBtn.addEventListener('click', ()=> setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
@@ -515,32 +527,10 @@
     const rmBtn = document.getElementById('toggleReducedMotion');
     const setRM = (val) => {
       localStorage.setItem(rmKey, val);
-      document.documentElement.style.setProperty('--rm', val?'1':'0');
       document.body.classList.toggle('reduced-motion', !!val);
     };
     setRM(localStorage.getItem(rmKey) === '1');
     rmBtn.addEventListener('click', ()=> setRM(!(localStorage.getItem(rmKey) === '1') ? 1 : 0));
-
-    // Lazy hover effects
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    },{threshold:.15});
-    document.querySelectorAll('.card, .contact-card, .project').forEach(el=>{
-      el.style.transform='translateY(8px)';
-      el.style.transition='transform .4s ease, box-shadow .4s ease';
-      el.addEventListener('mouseenter',()=> el.style.transform='translateY(-4px)');
-      el.addEventListener('mouseleave',()=> el.style.transform='translateY(0)');
-      io.observe(el);
-    });
-
-    // Prefetch resume on hover
-    const resumeLink = document.querySelector('a[href$="devOps.pdf"]');
-    resumeLink?.addEventListener('mouseenter', ()=> {
-      const link = document.createElement('link');
-      link.rel = 'prefetch';
-      link.href = resumeLink.getAttribute('href');
-      document.head.appendChild(link);
-    });
   </script>
 </body>
 </html>
