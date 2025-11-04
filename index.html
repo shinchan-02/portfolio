@@ -8,7 +8,7 @@
   <meta name="author" content="Satyam Agrawal" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SfZkq6e36V3l7YlV3Vf5M3Z2xgX8oQZq5O6S0u+X3Dk2J0n5j0aQ9GQ1x1bK2mA1b8kJ3u0ZkA3b2zY9+Y2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
@@ -53,9 +53,9 @@
 
     /* ---------- Global UI Enhancements ---------- */
     .glass{background:var(--card); backdrop-filter: blur(10px); border:1px solid var(--border); box-shadow: var(--shadow);}
-    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:12px 18px; border-radius:12px; font-weight:600; border:1.5px solid var(--accent); transition:.25s transform, .25s background;
-      background:linear-gradient(135deg, color-mix(in lab, var(--accent) 20%, transparent), transparent);
-    }
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:12px 18px; border-radius:12px; font-weight:600; border:1.5px solid var(--accent); transition:.25s transform, .25s background; background:linear-gradient(135deg, color-mix(in lab, var(--accent) 20%, transparent), transparent); white-space:normal;}
+    .btn span{overflow-wrap:anywhere}
+    .contact-card .btn{display:block; width:100%; word-break:break-all;}
     .btn:hover{transform:translateY(-2px); background:linear-gradient(135deg, color-mix(in lab, var(--accent) 35%, transparent), transparent);}    
     .btn.primary{color:white; border-color:transparent; background:linear-gradient(135deg, var(--accent), var(--accent-2));}
     .btn.icon{width:44px;height:44px;justify-content:center;border-radius:10px}
@@ -75,11 +75,11 @@
     .progress{position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); z-index:70; width:0}
 
     /* ---------- Hero ---------- */
-    .hero{position:relative; overflow:hidden}
+    .hero{position:relative; overflow:visible}
     .hero .wrap{display:grid; grid-template-columns: 1.2fr 1fr; gap:40px; align-items:center; padding:64px 0 40px}
     .badge{display:inline-flex; align-items:center; gap:.5rem; padding:8px 12px; border-radius:999px; border:1px solid var(--border); color:var(--muted); background:var(--card)}
-    .title{font-size:clamp(30px, 5vw, 56px); line-height:1.05; margin:.5rem 0 1rem; font-weight:800}
-    .subtitle{font-size:clamp(16px, 2.2vw, 18px); color:var(--muted)}
+    .title{font-size:clamp(30px, 5vw, 56px); line-height:1.05; margin:.5rem 0 1rem; font-weight:800; overflow-wrap:anywhere; word-break:break-word;}
+    .subtitle{font-size:clamp(16px, 2.2vw, 18px); color:var(--muted); overflow-wrap:anywhere; word-break:break-word;}
     .cta{margin-top:22px; display:flex; flex-wrap:wrap; gap:12px}
 
     /* LCP avatar */
@@ -128,7 +128,7 @@
 
     /* ---------- Contact Cards ---------- */
     .contact-grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
-    .contact-card{text-align:center; padding:26px; border-radius:18px}
+    .contact-card{text-align:center; padding:26px; border-radius:18px; overflow:hidden}
     .contact-icon{width:62px; height:62px; display:grid; place-items:center; border-radius:16px; margin:0 auto 12px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#fff; box-shadow: var(--shadow)}
 
     /* ---------- Footer ---------- */
@@ -212,7 +212,7 @@
       </section>
       <aside class="glass hero-card" aria-label="Profile quick facts">
         <div style="display:flex; gap:14px; align-items:center">
-          <img src="assets/photo.jpg" alt="Portrait of Satyam Agrawal" class="portrait" loading="eager" />
+          <img src="assets/photo.jpg" alt="Portrait of Satyam Agrawal" class="portrait" loading="eager" onerror="this.onerror=null;this.src='https://api.dicebear.com/7.x/initials/svg?seed=Satyam%20Agrawal';" />
           <div>
             <h3 style="margin:0 0 6px">Satyam Agrawal</h3>
             <p class="t-meta">Gurugram, India • 4+ yrs</p>
