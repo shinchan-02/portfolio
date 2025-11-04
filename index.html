@@ -46,7 +46,7 @@
       --shadow: 0 10px 24px rgba(2,6,23,.12);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}
     body{font-family:Inter,system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; background:var(--bg); color:var(--text); line-height:1.7;}
     a{color:var(--accent); text-decoration:none}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
@@ -124,7 +124,8 @@
 
     /* ---------- Project Gallery ---------- */
     .project{display:flex; gap:16px; align-items:flex-start}
-    .project img{width:140px; height:100px; object-fit:cover; border-radius:12px; border:1px solid var(--border)}
+    .project img, .project .thumb-placeholder{width:140px; height:100px; object-fit:cover; border-radius:12px; border:1px solid var(--border)}
+    .project .thumb-placeholder{display:block; background:linear-gradient(135deg, var(--accent), var(--accent-2)); opacity:.25}
 
     /* ---------- Contact Cards ---------- */
     .contact-grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
@@ -190,7 +191,7 @@
         </div>
         <div class="marquee" style="margin-top:22px">
           <div class="marquee-track">
-            <span class="chip"><img alt="aws" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">AWS</span>
+            <span class="chip"><img alt="aws" src="https://cdn.simpleicons.org/amazonaws/ff9900">AWS</span>
             <span class="chip"><img alt="k8s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">Kubernetes</span>
             <span class="chip"><img alt="helm" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg">Helm</span>
             <span class="chip"><img alt="jenkins" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg">Jenkins</span>
@@ -199,7 +200,7 @@
             <span class="chip"><img alt="python" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">Python</span>
             <span class="chip"><img alt="go" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg">Go</span>
             <!-- duplicate for smooth loop -->
-            <span class="chip"><img alt="aws" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">AWS</span>
+            <span class="chip"><img alt="aws" src="https://cdn.simpleicons.org/amazonaws/ff9900">AWS</span>
             <span class="chip"><img alt="k8s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">Kubernetes</span>
             <span class="chip"><img alt="helm" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg">Helm</span>
             <span class="chip"><img alt="jenkins" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg">Jenkins</span>
@@ -369,7 +370,7 @@
       <p class="section-sub">A peek into recent impact. (Redacted where needed.)</p>
       <div class="grid">
         <div class="card glass project">
-          <img src="assets/project-eks.jpg" alt="EKS cluster visualization" loading="lazy">
+          <div class="thumb-placeholder" aria-hidden="true"></div>
           <div>
             <h3>Multi‑tenant EKS Platform</h3>
             <p>Built a multi‑tenant EKS stack with Helm‑based app delivery, OpenSearch logs, and cost‑aware autoscaling. Cut deploy time by 70% and stabilized p95 latency under load.</p>
@@ -377,7 +378,7 @@
           </div>
         </div>
         <div class="card glass project">
-          <img src="assets/project-ci.jpg" alt="Jenkins pipeline screenshot" loading="lazy">
+          <div class="thumb-placeholder" aria-hidden="true"></div>
           <div>
             <h3>Jenkins + GitLab CI Hybrid</h3>
             <p>Migrated monorepo pipelines to a hybrid CI with ephemeral agents and Playwright smoke tests. Mean time to recovery down 40% via automated rollbacks.</p>
@@ -385,7 +386,7 @@
           </div>
         </div>
         <div class="card glass project">
-          <img src="assets/project-mysql.jpg" alt="MySQL upgrade diagram" loading="lazy">
+          <div class="thumb-placeholder" aria-hidden="true"></div>
           <div>
             <h3>Zero‑Drama MySQL Upgrades</h3>
             <p>Orchestrated 5.6 ➜ 8.0 upgrades with data‑safe rollout using pt‑osc, phased replicas, and detailed playbooks. No late‑night war rooms required.</p>
