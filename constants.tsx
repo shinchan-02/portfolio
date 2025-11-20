@@ -5,7 +5,7 @@ import {
   Shield, 
   Code, 
   Terminal, 
-  BarChart3, 
+  ChartBar, 
   Zap,
   Database,
   Repeat
@@ -24,26 +24,26 @@ export const CONTACT_INFO = {
 export const SERVICES: Service[] = [
   {
     id: 'cloud-arch',
-    title: 'Cloud Architecture & Migration',
-    description: 'Migrating legacy monolithic apps to microservices on AWS/GCP Kubernetes clusters. designing resilient, scalable infrastructure.',
+    title: 'Cloud Architecture',
+    description: 'Migrating legacy monolithic apps to microservices on AWS/GCP Kubernetes clusters. Designing resilient, scalable infrastructure.',
     icon: Cloud
   },
   {
     id: 'cost-opt',
     title: 'Cost Optimization',
     description: 'Reducing cloud bills by implementing Spot Instances, right-sizing resources, and automated cleanup scripts. Proven track record of huge savings.',
-    icon: BarChart3
+    icon: ChartBar
   },
   {
     id: 'cicd',
     title: 'CI/CD Automation',
-    description: 'Building "Click-to-Deploy" pipelines using Jenkins, GitLab CI, and GitHub Actions. Integrating automated testing (Playwright) and security scans.',
+    description: 'Building "Click-to-Deploy" pipelines using Jenkins, GitLab CI, and GitHub Actions. Integrating automated testing and security scans.',
     icon: Repeat
   },
   {
     id: 'observability',
-    title: 'Observability & Monitoring',
-    description: 'Setting up full-stack observability with Prometheus, Grafana, ELK, and OpenSearch to ensure 99.99% system reliability and proactive alerting.',
+    title: 'Observability',
+    description: 'Setting up full-stack observability with Prometheus, Grafana, ELK, and OpenSearch to ensure 99.99% system reliability.',
     icon: Terminal
   }
 ];
@@ -59,8 +59,8 @@ export const EXPERIENCES: Experience[] = [
       'Migrated self-hosted applications from EC2 to Kubernetes using Helm.',
       'Managed CI/CD pipelines using Ansible and Jenkins with integrated Playwright automation.',
       'Integrated OpenSearch with Fluentd and Fluent Bit for centralized logging.',
-      'Resolved critical application-level issues (5xx errors) through proactive Prometheus/Alertmanager monitoring.',
-      'Strengthened security with Snort, Wazuh, and Teleport for auditable access.'
+      'Resolved critical application-level issues (5xx errors) through proactive Prometheus monitoring.',
+      'Strengthened security with Snort, Wazuh, and Teleport.'
     ]
   },
   {
@@ -73,7 +73,7 @@ export const EXPERIENCES: Experience[] = [
       'Deployed self-hosted Kubernetes (K8s) clusters on GCP.',
       'Migrated services from VMs to K8s improving scalability.',
       'Designed Helm and Jenkins pipelines streamlining workflows.',
-      'Diagnosed infrastructure bottlenecks (Memory/CPU) and enforced security best practices.'
+      'Diagnosed infrastructure bottlenecks and enforced security best practices.'
     ]
   },
   {
