@@ -3,7 +3,6 @@ import {
   Cloud, 
   Server, 
   Shield, 
-  Code, 
   Terminal, 
   ChartBar, 
   Zap,
@@ -111,7 +110,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: "Languages",
     skills: ["Bash", "Python", "Lua", "PowerShell", "SQL"]
-  }
+  },
 ];
 
 export const PROJECTS: Project[] = [
