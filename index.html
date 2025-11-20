@@ -73,7 +73,8 @@
         backdrop-filter: blur(16px);
         border-bottom: 1px solid rgba(56, 189, 248, 0.1);
       }
-      /* Custom scrollbar */
+      
+      /* Global scrollbar */
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -86,6 +87,17 @@
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #38bdf8;
+      }
+
+      /* Terminal specific scrollbar */
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #334155;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #475569;
       }
     </style>
   <script type="importmap">
@@ -101,5 +113,6 @@
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
